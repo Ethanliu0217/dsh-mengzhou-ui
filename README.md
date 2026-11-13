@@ -1,4 +1,4 @@
-# 鸣潮·梦州（Mengzhou）— DeepSeek Harness 界面皮肤
+# 鸣潮·梦州玄方DeepSeek Harness UI
 
 ## 预览截图
 
