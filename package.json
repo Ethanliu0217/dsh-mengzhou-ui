@@ -1,0 +1,52 @@
+{
+  "name": "dsh-mengzhou-ui",
+  "version": "0.1.0",
+  "description": "Mengzhou (鸣潮·梦州) skin for the DeepSeek Harness web GUI: ink-black jade palette, holographic jade-gold borders, cloud-pattern ornament layer, serif display type.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    },
+    "manifestVersion": 1
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ethanliu0217/dsh-mengzhou-ui.git"
+  },
+  "homepage": "https://github.com/Ethanliu0217/dsh-mengzhou-ui#readme",
+  "bugs": {
+    "url": "https://github.com/Ethanliu0217/dsh-mengzhou-ui/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "theme",
+    "wuthering-waves",
+    "mengzhou"
+  ],
+  "license": "MIT"
+}

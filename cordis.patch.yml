@@ -1,0 +1,9 @@
+# dsh-mengzhou-ui bundle patch
+#
+# 鸣潮·梦州（Mengzhou）主题皮肤 —— 挂载声明。
+# 安装后 profile 只要在 dsh.profile.bundles 里列出 dsh-mengzhou-ui 即生效。
+#
+#   dsh plugin --profile desktop add link:<本目录绝对路径>
+- insert:
+    - id: mengzhou-ui
+      name: dsh-mengzhou-ui
