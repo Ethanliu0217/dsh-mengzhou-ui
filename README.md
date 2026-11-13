@@ -298,3 +298,45 @@ CSS 落到 `_probe\mz.css`（v3 后 28.4 KB，括号配平），再 `node _probe
 不构成「环」。若御者连这枚小角标也不想要，删 `buildVeil()` 里对应那一行即可。
 **若刷新后右下仍有弧形**，那就是 `refs\plate-*.webp` 底图里画着的（组装图一时抠进来的），要在 `_probe\compose3.py` 的裁剪里抹掉，
 不在 CSS 层。
+
+
+---
+
+## 10. 发布：GitHub 仓库与 DSH 插件市场索引（2026-11-14）
+
+**仓库**：<https://github.com/Ethanliu0217/dsh-mengzhou-ui>（public，MIT，分支 `main`）
+**直接安装（已知来源）**：`github:Ethanliu0217/dsh-mengzhou-ui`
+
+### 市场为什么要自建索引
+
+DSH 的「发现」标签页（实验性插件索引 bundle）**没有官方索引**——官方 README 原文：
+「目前没有官方插件索引；发现标签页只列出用户添加的索引源」。所以「上架市场」不是提交审核，
+而是**自己托管一份 format 1 的 JSON 索引**，让用户把它的 URL 加进「发现」页。
+
+- 索引 URL（本仓库 raw）：`https://raw.githubusercontent.com/Ethanliu0217/dsh-mengzhou-ui/main/index.json`
+- 索引文件：`index.json`（仓库根，由 `_probe/make_index.mjs <40位commit> <version> <输出>` 生成）
+
+### 索引格式（format 1，`@deepseek-ai/dsh-plugin-market-index` 校验器口径）
+
+顶层：`format: 1`、`title`（本地化文案，必须含 `en`）、可选 `description`、
+可选 `metadata`（`categories` / `labels` / `sortKeys` 的声明表）、`plugins` 数组。
+
+每个 plugin：`name`（合法 npm 包名且唯一）、可选 `title` / `description`（同本地化规格）、
+可选 `icon`（`data:` base64 ≤32 KiB，或相对索引 URL 的 https 引用）、可选 `author` / `homepage` /
+`repository{url[,directory]}`、`metadata{category?,keywords[],labels[],sortKeys}`、`versions[]`。
+
+每个 version：`version`（精确 SemVer）、`publishTimestamp`（Unix 秒整数）、`engines.dsh`（可选 SemVer range）、
+`source`：npm 用 `{type:"npm"[,registry]}`，Git 用 `{type:"git",url:"https://github.com/<owner>/<repo>",commit:"<40位小写 sha>"[,path:"<包目录>"]}`。
+
+**Git 源的关键约束**：`url` 必须是**规范形式**的 https 仓库地址（至少两段路径、不能带 query/fragment），
+`commit` 必须是**完整 40 位小写 SHA**——市场按 commit 钉死，拼出来的安装串形如 `git+https://github.com/...git#<commit>`。
+
+### 发新版本的流程
+
+1. 改 `package.json` 的 `version`，提交并 `git push`；
+2. 取 `git rev-parse HEAD` 的 40 位 SHA；
+3. `node _probe\make_index.mjs <sha> <version> index.json`；
+4. 提交并推送 `index.json`；
+5. 仓外用户：插件 → 实验性插件 → 启用「自定义插件索引」→「发现」→ 添加索引源 URL → 安装 `dsh-mengzhou-ui`。
+
+> `index.json` 只列当前版本；要留历史版本就往 `versions[]` 里追加，校验器会按 SemVer 降序排。

@@ -1,0 +1,90 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Mengzhou UI — skins for DeepSeek Harness",
+    "zh": "梦州主题 — DeepSeek Harness 界面皮肤"
+  },
+  "description": {
+    "en": "Interface skins for the DeepSeek Harness web GUI.",
+    "zh": "为 DeepSeek Harness Web 界面制作的皮肤合集。"
+  },
+  "metadata": {
+    "categories": {
+      "theme": {
+        "title": {
+          "en": "Theme",
+          "zh": "主题皮肤"
+        }
+      }
+    },
+    "labels": {
+      "dark": {
+        "title": {
+          "en": "Dark",
+          "zh": "暗色"
+        }
+      },
+      "jade": {
+        "title": {
+          "en": "Jade",
+          "zh": "青玉"
+        }
+      },
+      "wuthering": {
+        "title": {
+          "en": "Wuthering Waves",
+          "zh": "鸣潮"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-mengzhou-ui",
+      "title": {
+        "en": "Mengzhou — Wuthering Waves skin",
+        "zh": "梦州 — 鸣潮风格主题"
+      },
+      "description": {
+        "en": "Ink-black jade palette, holographic jade-gold borders, cloud-pattern ornament layer and serif display type for the DeepSeek Harness web GUI.",
+        "zh": "墨黑青玉配色、青金全息描边、云纹装饰层与衬线标题字，重绘 DeepSeek Harness Web 界面。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMGQxNTEyIi8+CjxwYXRoIGQ9Ik0zOCAxNGExNiAxNiAwIDEgMCAwIDMyIDEzIDEzIDAgMSAxIDAtMzJ6IiBmaWxsPSIjN2ZlOGQyIiBvcGFjaXR5PSIuOTIiLz4KPGNpcmNsZSBjeD0iNDUiIGN5PSIyMSIgcj0iMi42IiBmaWxsPSIjZDhiMjZhIi8+CjxwYXRoIGQ9Ik0xMiA1MGg0MCIgc3Ryb2tlPSIjZDhiMjZhIiBzdHJva2Utd2lkdGg9IjEuNCIgb3BhY2l0eT0iLjUiLz4KPC9zdmc+",
+      "author": "Ethanliu0217",
+      "homepage": "https://github.com/Ethanliu0217/dsh-mengzhou-ui#readme",
+      "repository": {
+        "url": "https://github.com/Ethanliu0217/dsh-mengzhou-ui"
+      },
+      "metadata": {
+        "category": "theme",
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "theme",
+          "wuthering-waves",
+          "mengzhou",
+          "skin",
+          "jade"
+        ],
+        "labels": [
+          "dark",
+          "jade",
+          "wuthering"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794588317,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/Ethanliu0217/dsh-mengzhou-ui",
+            "commit": "271a8c55fd8d37839661be9563be1027804c6e6d"
+          }
+        }
+      ]
+    }
+  ]
+}
