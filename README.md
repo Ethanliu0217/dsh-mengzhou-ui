@@ -11,6 +11,50 @@
 
 参考《鸣潮》梦州版本的 UI 视觉语言，把「墨玉底 + 青玉描边 + 鎏金刻线 + 衬线题签 + 云纹角饰 + 竖排印章」移植到 DeepSeek Harness 的 Web GUI 上，做成可安装、可卸载、可热替换的客户端主题插件：`dsh-mengzhou-ui`。
 
+## 安装
+
+不需要下载或解压任何文件：这个主题以 DeepSeek Harness 插件的形式发布，让 Harness 里的助手帮你装就行。
+
+### 推荐方式：把一句话发给助手
+
+打开 DeepSeek Harness（桌面端或 Web GUI），在任意对话里发送：
+
+```text
+请用 plugin_manager 帮我安装并启用 DSH 主题插件 dsh-mengzhou-ui，仓库地址：
+https://github.com/Ethanliu0217/dsh-mengzhou-ui
+装好之后告诉我怎么重启才能看到新主题。
+```
+
+助手会自己完成安装；如果弹出权限确认，允许这一次安装即可。装好后**完全退出 DeepSeek Harness 再重新打开**，界面就是梦州主题了（暗色 / 亮色跟随 DSH 的明暗模式切换）。
+
+<details>
+<summary>其他安装方式、卸载与说明</summary>
+
+**从「插件」页安装**：侧边栏「插件」→「添加插件」，在输入框里填 `https://github.com/Ethanliu0217/dsh-mengzhou-ui`（或 `github:Ethanliu0217/dsh-mengzhou-ui`），点「安装」；装完点「立即启用」，然后重启 DSH。
+
+**命令行安装**（`dsh` 命令已随桌面端提供并加入 PATH 时；`desktop` 是桌面端默认 profile，换 profile 时改成对应名字）：
+
+```bash
+dsh plugin --profile desktop add github:Ethanliu0217/dsh-mengzhou-ui
+```
+
+**卸载 / 恢复默认主题**：
+
+```bash
+dsh plugin --profile desktop remove dsh-mengzhou-ui
+```
+
+也可以对助手说一句「请卸载 dsh-mengzhou-ui 并恢复默认主题」，或在「插件」页里卸载。重启后即恢复默认外观。
+
+**说明**
+
+- 这个插件没有发布到 npm，安装时请使用上面的 GitHub 地址；
+- 安装会把 `dsh-mengzhou-ui` 写入当前 profile 的依赖与 `dsh.profile.bundles`，并自动应用它的 `cordis.patch.yml`（插入 `mengzhou-ui` 主题）；插件本身不会改动 DSH 安装目录；
+- 需要能访问 github.com；安装、卸载都在重启 DSH 之后生效；
+- 助手的插件管理工具 `plugin_manager` 在 Standard / Creator 预设中默认启用；若当前预设没有该工具，用上面的「插件」页或命令行方式。
+
+</details>
+
 ## 视觉设计
 
 - **墨玉暗色主题**：近黑墨色底，青玉色边框与文字层次，鎏金色作为细节强调。
