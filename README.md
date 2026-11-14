@@ -22,6 +22,13 @@
 ```text
 请用 plugin_manager 帮我安装并启用 DSH 主题插件 dsh-mengzhou-ui，仓库地址：
 https://github.com/Ethanliu0217/dsh-mengzhou-ui
+
+安装前先检查本机有没有 git（例如 git --version）：
+- 如果没有，先尝试用系统包管理器自动安装（Windows：winget install --id Git.Git；
+  macOS：brew install git 或 xcode-select --install；Linux：apt / dnf / pacman）；
+- 如果装不上，改用压缩包安装（不需要 git）：
+  https://github.com/Ethanliu0217/dsh-mengzhou-ui/archive/refs/heads/main.tar.gz
+
 装好之后告诉我怎么重启才能看到新主题。
 ```
 
@@ -38,6 +45,12 @@ https://github.com/Ethanliu0217/dsh-mengzhou-ui
 dsh plugin --profile desktop add github:Ethanliu0217/dsh-mengzhou-ui
 ```
 
+**没有 git 时**（从 GitHub 仓库安装需要本机有 git，pnpm 用它拉取仓库；压缩包地址直接走 HTTPS 下载，不需要 git）：
+
+```bash
+dsh plugin --profile desktop add https://github.com/Ethanliu0217/dsh-mengzhou-ui/archive/refs/heads/main.tar.gz
+```
+
 **卸载 / 恢复默认主题**：
 
 ```bash
@@ -49,6 +62,7 @@ dsh plugin --profile desktop remove dsh-mengzhou-ui
 **说明**
 
 - 这个插件没有发布到 npm，安装时请使用上面的 GitHub 地址；
+- 从 GitHub 仓库安装需要本机有 `git`（pnpm 用它拉取仓库）；没有 git 时用上面的压缩包地址即可，不需要 git。自动安装 git 可能需要管理员权限，装不上就走压缩包方式；
 - 安装会把 `dsh-mengzhou-ui` 写入当前 profile 的依赖与 `dsh.profile.bundles`，并自动应用它的 `cordis.patch.yml`（插入 `mengzhou-ui` 主题）；插件本身不会改动 DSH 安装目录；
 - 需要能访问 github.com；安装、卸载都在重启 DSH 之后生效；
 - 助手的插件管理工具 `plugin_manager` 在 Standard / Creator 预设中默认启用；若当前预设没有该工具，用上面的「插件」页或命令行方式。
